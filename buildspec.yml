@@ -8,9 +8,7 @@ phases:
     commands:
       - echo "Zipping Lambda code..."
       - zip function.zip lambda_function.py
-  post_build:
-    commands:
-      - echo "Deploying to Lambda..."
-      - aws lambda update-function-code
-          --function-name myLambda
-          --zip-file fileb://function.zip
+
+artifacts:
+  files:
+    - function.zip
